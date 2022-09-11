@@ -1,5 +1,11 @@
 :root {
   --primary-color: #71FFAA;
+
+  --light-bg: #EFF2F9;
+  --light-logo-text: #000000;
+
+  --dark-bg: #000000;
+  --dark-logo-text: #FFFFFF;
 }
 
 * {
@@ -19,7 +25,7 @@ html, body, main {
 }
 
 body {
-  border: 1px solid var(--primary-color);
+  border: 5px solid var(--primary-color);
   border-radius: 3px;
 }
 
@@ -31,4 +37,18 @@ main {
 
 main img {
   max-width: 50%;
+}
+
+/* Light theme styles */
+.light {
+  background: var(--light-bg);
+}
+
+.light .logo-text {
+  fill: var(--light-logo-text);
+}
+
+/* Dark theme styles */
+.dark {
+  background: var(--dark-bg);
 }
