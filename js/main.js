@@ -1,6 +1,5 @@
 ;(() => {
   function setTheme(newTheme) {
-    debugger
     const classToAdd = newTheme
     const classToRemove = newTheme === 'light' ? 'dark' : 'light'
     document.body.classList.add(classToAdd)
@@ -26,7 +25,7 @@
   const darkQuery = window.matchMedia('(prefers-color-scheme: dark)')
   setTheme(theme || (darkQuery.matches ? 'dark' : 'light'))
 
-  darkQuery.addListener(function (e) {
+  darkQuery.addListener((e) => {
     setTheme(e.matches ? 'dark' : 'light')
   })
 })()
