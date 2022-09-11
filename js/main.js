@@ -4,28 +4,14 @@
     const classToRemove = newTheme === 'light' ? 'dark' : 'light'
     document.body.classList.add(classToAdd)
     document.body.classList.remove(classToRemove)
-    try {
-      localStorage.setItem('theme', newTheme)
-    } catch (err) {
-      console.error('Unable to save theme preference', err)
-    }
   }
 
-  function getTheme() {
-    try {
-      const preferredTheme = localStorage.getItem('theme')
-      return preferredTheme
-    } catch (err) {
-      console.error('Unable to retrieve theme preference', err)
-      return 'dark'
-    }
-  }
+  const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)')
+  const theme = prefersDarkScheme.matches ? 'dark' : 'light'
+  setTheme(theme)
 
-  const theme = getTheme()
-  const darkQuery = window.matchMedia('(prefers-color-scheme: dark)')
-  setTheme(theme || (darkQuery.matches ? 'dark' : 'light'))
-
-  darkQuery.addListener((e) => {
-    setTheme(e.matches ? 'dark' : 'light')
+  prefersDarkScheme.addListener((event) => {
+    const newTheme = event.matches ? 'dark' : 'light'
+    setTheme(newTheme)
   })
 })()
