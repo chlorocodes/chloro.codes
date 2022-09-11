@@ -35,7 +35,7 @@ main {
   align-items: center;
 }
 
-main img {
+.logo {
   max-width: 50%;
 }
 
