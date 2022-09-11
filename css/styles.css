@@ -1,0 +1,34 @@
+:root {
+  --primary-color: #71FFAA;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  background: black;
+  margin: 0;
+  padding: 0;
+}
+
+html, body, main {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  border: 1px solid var(--primary-color);
+  border-radius: 3px;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+main img {
+  max-width: 50%;
+}
